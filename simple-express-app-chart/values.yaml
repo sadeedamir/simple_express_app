@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: SadeedAamir/my-express-app 
+  pullPolicy: IfNotPresent
+  tag: latest 
+
+service:
+  type: NodePort
+  port: 3000
+ingress:
+  enabled: false
+autoscaling:
+  enabled: false  # Set to true if you want to enable Horizontal Pod Autoscaler
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80  # Adjust this based on your requirements
+
+mongodb:
+  image: mongo:latest
+  mongodbRootPassword: password
+  mongodbUsername: user
+  mongodbPassword: password
+  mongodbDatabase: simpleApp
+  service:
+    port: 27017
+
+serviceAccount:
+  create: true
+  name: ""

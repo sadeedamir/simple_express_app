@@ -1,0 +1,4 @@
+apiVersion: v2
+name: mongo-db
+description: A Helm chart for MongoDB deployment with persistent storage
+version: 0.1.0

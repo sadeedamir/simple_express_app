@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: mongo
+  tag: latest
+
+service:
+  enabled: true
+  type: ClusterIP
+  port: 27017
+
+persistence:
+  enabled: true
+  storageClass: standard  # Update with your cluster's storage class
+  accessMode: ReadWriteOnce
+  size: 8Gi  # Set the desired volume size
